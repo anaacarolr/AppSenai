@@ -78,6 +78,7 @@ def main(page: flet.Page):
         Container(
             Column(
                 [
+                    Text("Atividade 2", weight=FontWeight.BOLD, size=24),
                     input_numero,
                     btn_verificar,
                     text_parimpar,
@@ -93,6 +94,7 @@ def main(page: flet.Page):
         Container(
             Column(
                 [
+                    Text("Atividade 3", weight=FontWeight.BOLD, size=24),
                     input_data_nascimento,
                     btn_calcular,
                     text_idade
