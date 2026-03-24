@@ -12,12 +12,13 @@ def main(page: flet.Page):
 
     #funções
     def salvar_nome():
-        text.value = f'Bom dia , {input_nome.value}'
+        text.value = f'Bom dia , {input_nome.value} {input_sobrenome.value}'
 
 
     #componentes
     text = Text()
     input_nome = TextField(label="Nome")
+    input_sobrenome = TextField(label="sobrenome")
     btn_salvar = OutlinedButton("Salvar", on_click=salvar_nome)
 
     #Construção de tela
@@ -25,7 +26,7 @@ def main(page: flet.Page):
     page.add(
         Column([
             input_nome,
-            input_nome,
+            input_sobrenome,
             btn_salvar,
             text
         ],
