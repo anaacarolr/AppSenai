@@ -9,7 +9,7 @@ from datetime import datetime
 def main(page: flet.Page):
     #configurações
     page.title = "Primeiro APP"
-    page.theme_mode = ThemeMode.DARK # Ou ThemeMode.Dark
+    page.theme_mode = ThemeMode.LIGHT # Ou ThemeMode.Dark
     page.window.width = 400
     page.window.height = 700
 
