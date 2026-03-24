@@ -1,7 +1,9 @@
 import flet
-from flet import ThemeMode, Text, TextField, Button, Column, CrossAxisAlignment, OutlinedButton, ElevatedButton
+from flet import ThemeMode, Text, TextField, Button, Column, CrossAxisAlignment, OutlinedButton, ElevatedButton, \
+    TextButton
 from flet.controls.border_radius import horizontal
 from flet.controls.material import button
+from datetime import datetime
 
 
 def main(page: flet.Page):
@@ -22,16 +24,29 @@ def main(page: flet.Page):
         else:
             text_parimpar.value = f'O {numero} é impar'
 
+    def calcular_idade():
+        ano_nascimento = int(input_data_nascimento.value)
+        idade = datetime.now().year - ano_nascimento
+        if idade >= 18:
+            text_idade.value = f'Você tem {idade} e é maior de idade'
+        else:
+            text_idade.value = f'Você tem {idade} e menor de idade'
+
+
 
 
     #componentes
     text = Text()
     text_parimpar = Text()
+    text_idade = Text()
     input_nome = TextField(label="Nome")
     input_sobrenome = TextField(label="sobrenome")
-    input_numero= TextField(label="Digite um numero")
+    input_numero= TextField(label="Digite um numero", hint_text="Verifique se é par ou impar")
+    input_data_nascimento= TextField(label="Digite o ano de nascimento", hint_text="EX:1997")
     btn_salvar = OutlinedButton("Salvar", on_click=salvar_nome)
     btn_verificar = ElevatedButton("Verificar", on_click=vericar_parimpar)
+    btn_calcular = TextButton("Calcular idade", on_click=calcular_idade)
+
 
 
 
@@ -45,7 +60,11 @@ def main(page: flet.Page):
             text,
             input_numero,
             text_parimpar,
-            btn_verificar
+            btn_verificar,
+            input_data_nascimento,
+            btn_calcular,
+            text_idade
+
         ],
         width=400,
         horizontal_alignment=CrossAxisAlignment.CENTER
